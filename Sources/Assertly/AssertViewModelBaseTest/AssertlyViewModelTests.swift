@@ -21,7 +21,7 @@ public class AssertlyViewModelTests<T: ViewModelProtocol>: XCTestCase {
         super.tearDown()
     }
     
-    public func createDependencies() -> T {
+   open func createDependencies() -> T {
         fatalError("Override \("createDependencies") this method in subclass")
     }
     
