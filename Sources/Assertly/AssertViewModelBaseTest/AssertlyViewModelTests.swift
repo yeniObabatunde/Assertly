@@ -11,17 +11,17 @@ public class AssertlyViewModelTests<T: ViewModelProtocol>: XCTestCase {
     
     public var sut: T?
     
-    public override func setUp() {
+    open override func setUp() {
         super.setUp()
         sut = createDependencies()
     }
     
-    public override func tearDown() {
+    open override func tearDown() {
         sut = nil
         super.tearDown()
     }
     
-   open func createDependencies() -> T {
+    open func createDependencies() -> T {
         fatalError("Override \("createDependencies") this method in subclass")
     }
     
@@ -190,7 +190,7 @@ public class AssertlyViewModelTests<T: ViewModelProtocol>: XCTestCase {
         let value2 = expression2()
         XCTAssertNotEqual(value1, value2, message(), file: file, line: line)
     }
-
+    
     public func assertNotIdentical(_ expression1: @autoclosure () -> AnyObject?,
                                    _ expression2: @autoclosure () -> AnyObject?,
                                    _ message: @autoclosure () -> String = "",
@@ -200,7 +200,7 @@ public class AssertlyViewModelTests<T: ViewModelProtocol>: XCTestCase {
         let value2 = expression2()
         XCTAssertNotIdentical(value1, value2, message(), file: file, line: line)
     }
-  
+    
     public func assertNoThrow<V>(_ expression: @autoclosure () throws -> V,
                                  _ message: @autoclosure () -> String = "",
                                  file: StaticString = #file,

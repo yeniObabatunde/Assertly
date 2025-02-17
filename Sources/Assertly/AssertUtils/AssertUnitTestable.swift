@@ -21,21 +21,21 @@ public protocol UnitTestable {
 
 
 open class BaseTestCase<T: UnitTestable>: XCTestCase {
-   public var sut: T?
+    public var sut: T?
     
-    public override func setUp() {
+    open override func setUp() {
         super.setUp()
         sut = T(dependencies: createDependencies())
         sut?.setUp()
     }
     
-    public override func tearDown() {
+    open override func tearDown() {
         sut?.tearDown()
         sut = nil
         super.tearDown()
     }
     
-  open func createDependencies() -> T.Dependencies {
+    open func createDependencies() -> T.Dependencies {
         fatalError("Subclasses must implement createDependencies()")
     }
 }
