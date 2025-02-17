@@ -35,7 +35,7 @@ open class BaseTestCase<T: UnitTestable>: XCTestCase {
         super.tearDown()
     }
     
-   public func createDependencies() -> T.Dependencies {
+  open func createDependencies() -> T.Dependencies {
         fatalError("Subclasses must implement createDependencies()")
     }
 }
