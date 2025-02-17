@@ -7,7 +7,7 @@
 
 import XCTest
 
-public class AssertlyViewModelTests<T: ViewModelProtocol>: XCTestCase {
+open class AssertlyViewModelTests<T: ViewModelProtocol>: XCTestCase {
     
     public var sut: T?
     
